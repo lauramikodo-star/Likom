@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walmart Receipt Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="editor-panel">
+            <h2>Receipt Settings</h2>
+            <div class="form-group">
+                <label>Store Address Line 1</label>
+                <input type="text" id="store-address-1" value="WM Supercenter">
+            </div>
+            <div class="form-group">
+                <label>Store Address Line 2</label>
+                <input type="text" id="store-address-2" value="210-637-1700 Mgr ROMAN">
+            </div>
+            <div class="form-group">
+                <label>Store Address Line 3</label>
+                <input type="text" id="store-address-3" value="1430 AUSTIN HWY">
+            </div>
+            <div class="form-group">
+                <label>Store Address Line 4</label>
+                <input type="text" id="store-address-4" value="SAN ANTONIO TX 782209">
+            </div>
+
+            <div class="form-group">
+                <label>Date (MM/DD/YY)</label>
+                <input type="text" id="receipt-date" value="11/20/25">
+            </div>
+            <div class="form-group">
+                <label>Time (HH:MM:SS)</label>
+                <input type="text" id="receipt-time" value="13:44:22">
+            </div>
+            <div class="form-group">
+                <label>TC#</label>
+                <input type="text" id="receipt-tc" value="10278045 5914 6709 1192">
+            </div>
+
+            <h3>Items</h3>
+            <div id="items-container">
+                <!-- Items inputs will go here -->
+            </div>
+            <button id="add-item-btn">Add Item</button>
+
+            <h3>Totals</h3>
+            <div class="form-group">
+                <label>Tax Rate (%)</label>
+                <input type="number" id="tax-rate" value="8.250" step="0.001">
+            </div>
+
+            <button onclick="window.print()">Print Receipt</button>
+        </div>
+
+        <div class="preview-panel">
+            <div id="receipt" class="receipt">
+                <div class="header">
+                    <div class="logo">Walmart <span class="spark">*:</span></div>
+                    <div id="r-address-1">WM Supercenter</div>
+                    <div id="r-address-2">210-637-1700 Mgr ROMAN</div>
+                    <div id="r-address-3">1430 AUSTIN HWY</div>
+                    <div id="r-address-4">SAN ANTONIO TX 782209</div>
+                    <div class="transaction-info">
+                        ST# 01347 OP# 002947 TE# 07 TR# 04411
+                    </div>
+                </div>
+
+                <div class="items-header">
+                    <div class="center"># ITEMS SOLD <span id="r-item-count">0</span></div>
+                    <div class="center">TC# <span id="r-tc">10278045 5914 6709 1192</span></div>
+                </div>
+
+                <div id="r-items-list" class="items-list">
+                    <!-- Items will appear here -->
+                </div>
+
+                <div class="totals">
+                    <div class="row">
+                        <span>SUBTOTAL</span>
+                        <span id="r-subtotal">0.00</span>
+                    </div>
+                    <div class="row">
+                        <span>TAX1 <span id="r-tax-rate">8.250%</span></span>
+                        <span id="r-tax-amount">0.00</span>
+                    </div>
+                    <div class="row total-row">
+                        <span>TOTAL</span>
+                        <span id="r-total">0.00</span>
+                    </div>
+                </div>
+
+                <div class="payment">
+                    <div class="row">
+                        <span>VISA TEND - 1047 I 2 APR#</span>
+                        <span id="r-payment-total">0.00</span>
+                    </div>
+                    <div class="row">
+                        <span>1610 TOTAL PURCHA-</span>
+                    </div>
+                    <div class="row">
+                        <span>REF # U3ZT5HTNJ7</span>
+                    </div>
+                     <div class="row">
+                        <span>TRANS ID - 30525960187431</span>
+                    </div>
+                     <div class="row">
+                        <span>VALIDATION - 13CR</span>
+                    </div>
+                     <div class="row">
+                        <span>PAYMENT SERVICE E</span>
+                    </div>
+                </div>
+
+                <div class="footer">
+                    <div>*No Signature Required</div>
+                    <div class="timestamp">
+                        <span id="r-date">11/20/25</span>
+                        <span id="r-time">13:44:22</span>
+                    </div>
+                    <div class="barcode-placeholder"></div>
+                    <div class="promo">
+                        Get free delivery<br>from this store<br>with Walmart+
+                    </div>
+                    <div class="slogan">
+                        Low prices You Can Trust. Every Day.
+                    </div>
+                    <div class="bottom-date">
+                        <span id="r-bottom-date">11/20/25</span>
+                        <span id="r-bottom-time">13:44:22</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

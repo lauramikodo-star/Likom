@@ -1,0 +1,244 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.editor-panel {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 320px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 4px;
+    box-sizing: border-box;
+}
+
+.receipt {
+    background: white;
+    width: 350px; /* Increased width to prevent wrapping */
+    padding: 15px 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.25;
+    text-transform: uppercase;
+    color: #000;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.logo {
+    font-family: sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    letter-spacing: -1.5px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.spark {
+    font-family: monospace;
+    margin-left: 5px;
+    font-weight: normal;
+    font-size: 24px;
+}
+
+.header div {
+    margin-bottom: 2px;
+}
+
+.transaction-info {
+    font-size: 12px;
+    margin-top: 5px;
+    white-space: nowrap; /* Prevent wrapping */
+    letter-spacing: -0.5px; /* Condense slightly */
+}
+
+.center {
+    text-align: center;
+}
+
+.items-header {
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.items-list {
+    margin-bottom: 10px;
+}
+
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2px;
+}
+
+.item-name {
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 10px;
+}
+
+.item-price {
+    min-width: 60px;
+    text-align: right;
+}
+
+.item-flag {
+    width: 25px;
+    text-align: right;
+}
+
+.totals {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.totals .row {
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.totals .row span:first-child {
+    margin-right: 20px;
+}
+
+.totals .row span:last-child {
+    min-width: 60px;
+    text-align: right;
+}
+
+.total-row {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.payment {
+    margin-top: 15px;
+}
+
+.payment .row {
+    margin-bottom: 2px;
+}
+
+.footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.timestamp {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+    font-size: 12px;
+}
+
+.barcode-placeholder {
+    margin: 15px auto;
+    width: 200px;
+    height: 60px;
+    display: block;
+    background: repeating-linear-gradient(
+        90deg,
+        #000,
+        #000 2px,
+        #fff 2px,
+        #fff 4px,
+        #000 4px,
+        #000 5px,
+        #fff 5px,
+        #fff 8px
+    );
+}
+
+.promo {
+    font-weight: bold;
+    margin: 10px 0;
+    font-family: sans-serif;
+    font-size: 16px;
+    text-transform: none;
+}
+
+.slogan {
+    margin: 10px 0;
+    font-size: 12px;
+    text-transform: none;
+}
+
+.bottom-date {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+@media print {
+    .editor-panel {
+        display: none;
+    }
+    body {
+        background: white;
+        padding: 0;
+        display: block;
+    }
+    .container {
+        display: block;
+    }
+    .receipt {
+        box-shadow: none;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    .barcode-placeholder {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
