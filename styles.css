@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Courier New', Courier, monospace;
     background-color: #f0f0f0;
@@ -11,6 +15,9 @@ body {
     display: flex;
     gap: 20px;
     align-items: flex-start;
+    flex-wrap: wrap; /* Allow wrapping for responsiveness */
+    justify-content: center;
+    width: 100%;
 }
 
 .editor-panel {
@@ -21,6 +28,9 @@ body {
     width: 320px;
     max-height: 90vh;
     overflow-y: auto;
+    /* Responsive behavior */
+    flex: 1 1 300px; /* Allow growing, shrinking, base 300px */
+    max-width: 400px;
 }
 
 .form-group {
@@ -40,9 +50,16 @@ body {
     box-sizing: border-box;
 }
 
+.preview-panel {
+    /* Container for the receipt to allow centering/handling on mobile */
+    display: flex;
+    justify-content: center;
+    flex: 0 0 auto;
+}
+
 .receipt {
     background: white;
-    width: 350px; /* Increased width to prevent wrapping */
+    width: 350px; /* Base width */
     padding: 15px 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     font-size: 14px;
@@ -50,6 +67,9 @@ body {
     line-height: 1.25;
     text-transform: uppercase;
     color: #000;
+
+    /* Responsive behavior */
+    max-width: 100%; /* Shrink if screen is tiny */
 }
 
 .header {
@@ -218,6 +238,29 @@ body {
     margin-top: 10px;
 }
 
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .editor-panel {
+        width: 100%;
+        max-width: 100%; /* Take full width on mobile */
+        margin-bottom: 20px;
+    }
+
+    .receipt {
+        width: 100%;
+        max-width: 350px; /* Keep receipt width constrained but flexible if smaller */
+    }
+}
+
 @media print {
     .editor-panel {
         display: none;
@@ -228,6 +271,9 @@ body {
         display: block;
     }
     .container {
+        display: block;
+    }
+    .preview-panel {
         display: block;
     }
     .receipt {
